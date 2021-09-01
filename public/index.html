@@ -1,2 +1,63 @@
-<input name="whatsapp-phone-number" placeholder="86686626">
-<button><a href="https://api.whatsapp.com/send?phone=15551234567">Open in Whatsapp</a></button>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<style>
+
+button,input {
+	width: 100%;
+	padding: 10px;
+	margin:8px 0;
+	border-radius:3px;
+	border:none;
+}
+input {
+	border-radius:0;
+	border-bottom: solid 2px #ccc;
+}
+
+button {
+
+}
+
+</style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row" style="margin-top:100px">
+    <div class="col-md-12" style="text-align:center">
+    	<input id="whatsapp-phone-number" placeholder="86686626">
+<button onClick=openWhatsapp()>Open in Whatsapp</button>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:100px">
+    <div class="col-md-12" style="text-align:center">
+    	
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+document.getElementById("whatsapp-phone-number").focus()
+
+function openWhatsapp() {
+	var url = "https://api.whatsapp.com/send";
+	var phoneNumberValue = document.getElementById("whatsapp-phone-number").value || "";
+	var formattedPhoneNumber = phoneNumberValue.trim();
+
+if ( !phoneNumberValue) return;
+
+	window.open(url + '?phone=' + formattedPhoneNumber);
+	
+
+}
+</script>
