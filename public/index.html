@@ -28,8 +28,9 @@ button {
 <div class="container-fluid">
   <div class="row" style="margin-top:100px">
     <div class="col-md-12" style="text-align:center">
-    	<input id="whatsapp-phone-number" placeholder="86686626">
-<button onClick=openWhatsapp()>Open in Whatsapp</button>
+    	<input id="whatsapp-phone-country" placeholder="65" value="65">
+    	<input id="whatsapp-phone-number" placeholder="86686626" >
+<button id="whatsapp-button" onClick=openWhatsapp()>Open in Whatsapp</button>
     </div>
   </div>
 
@@ -47,16 +48,27 @@ button {
 
 <script>
 
-document.getElementById("whatsapp-phone-number").focus()
+document.getElementById("whatsapp-phone-number").focus();
+document.getElementById("whatsapp-phone-number").addEventListener('keyup', phoneNumberKeyUp);
+function phoneNumberKeyUp(evt) {
+	
+	var keyCode = evt.keyCode;
+
+	if ( keyCode === 13)
+		openWhatsapp();
+}
 
 function openWhatsapp() {
 	var url = "https://api.whatsapp.com/send";
+	var phoneNumberCountry = document.getElementById("whatsapp-phone-country").value || "65";
 	var phoneNumberValue = document.getElementById("whatsapp-phone-number").value || "";
+
+	var formattedPhoneCountry = '+' + phoneNumberCountry.trim();
 	var formattedPhoneNumber = phoneNumberValue.trim();
 
 if ( !phoneNumberValue) return;
 
-	window.open(url + '?phone=' + formattedPhoneNumber);
+	window.open(url + '?phone=' + formattedPhoneCountry + formattedPhoneNumber);
 	
 
 }
