@@ -19,14 +19,25 @@ input {
 }
 
 button {
-
+	background-color:#01e675;
+	color:#fff;
+	border-radius:6px;
+	padding:14px;
 }
 
 </style>
 </head>
 <body>
 <div class="container-fluid">
-  <div class="row" style="margin-top:100px">
+<div class="row" style="margin-top:50px">
+    <div class="col-md-12" style="text-align:center">
+    <h1>Whatsapp Direct</h1>
+    <p><i>Open Whatsapp directly. Do not need to save number as a contact before sending a message anymore.</i></p>
+    
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:20px">
     <div class="col-md-12" style="text-align:center">
     	<input id="whatsapp-phone-country" placeholder="65" value="65">
     	<input id="whatsapp-phone-number" placeholder="86686626" >
@@ -34,12 +45,14 @@ button {
     </div>
   </div>
 
-  <div class="row" style="margin-top:100px">
+  <div class="row" style="margin-top:50px">
     <div class="col-md-12" style="text-align:center">
-    	
+    <p><i>Like this? Add to home screen.</i><br/><i>Develop by Zack Ng</i></p>
 
     </div>
   </div>
+
+  
 
 </div>
 
@@ -47,6 +60,7 @@ button {
 </html>
 
 <script>
+console.log('%c A humble Whatsapp direct message initiative by zack ng ', 'background: #222; color: #fff');
 
 document.getElementById("whatsapp-phone-number").focus();
 document.getElementById("whatsapp-phone-number").addEventListener('keyup', phoneNumberKeyUp);
